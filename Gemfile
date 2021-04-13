@@ -6,7 +6,7 @@ gem "rails", "~> 6.1.3"
 
 
 # Please add gem in alphabet order
-gem "bootsnap", ">= 1.1.0", require: false
+# gem "bootsnap", ">= 1.1.0", require: false
 gem "config"
 gem "puma", "~> 5.2"
 gem "httparty"
@@ -19,10 +19,10 @@ group :development, :test do
   gem "rubocop-rails", require: false
   gem "rubocop-checkstyle_formatter", require: false
 
-  gem "faker"
+  # gem "faker"
   gem "rails-controller-testing"
   gem "rspec"
-  gem "rspec-collection_matchers"
+  # gem "rspec-collection_matchers"
   gem "rspec-rails", "~> 5.0.1"
 end
 
