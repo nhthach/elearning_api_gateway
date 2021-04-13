@@ -2,14 +2,14 @@ require_relative "boot"
 
 require "rails"
 # Pick the frameworks you want:
-require "active_model/railtie"
+# require "active_model/railtie"
 require "active_job/railtie"
-require "active_record/railtie"
-require "active_storage/engine"
+# require "active_record/railtie"
+# require "active_storage/engine"
 require "action_controller/railtie"
 require "action_mailer/railtie"
-require "action_mailbox/engine"
-require "action_text/engine"
+# require "action_mailbox/engine"
+# require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
 # require "sprockets/railtie"
@@ -36,5 +36,21 @@ module ElearningApiGateway
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    config.time_zone = "Asia/Ho_Chi_Minh"
+    config.i18n.load_path += Dir["#{Rails.root.to_s}/config/locales/**/*.{rb,yml}"]
+    config.i18n.default_locale = :en
+
+    config.generators do |g|
+      g.stylesheets false
+      g.javascripts false
+      g.helper false
+      g.template_engine false
+      g.test_framework :rspec, view_specs: false, helper_specs: false, fixture: true
+      g.fixture_replacement :factory_bot, dir: "spec/factories"
+
+      # Don't generate system test files.
+      g.system_tests = nil
+    end
   end
 end
